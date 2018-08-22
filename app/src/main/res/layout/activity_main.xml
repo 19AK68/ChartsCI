@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -11,17 +8,112 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    android:weightSum="1"
-    >
-    <com.DonutChartCI.DonutChartCI
-    android:id="@+id/donutChartCI"
+    android:orientation="vertical"  >
 
-    android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_weight="0.33"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/ivChartMarkerBlack"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginVertical="20dp"
+
+                    android:background="@drawable/ic_lens_black_8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:text="Total Mortgage"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/ivChartMarkerRed"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginVertical="20dp"
+
+                    android:background="@drawable/ic_lens_red_8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:text="Market Vaule"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/ivChartMarkerGreen"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginVertical="20dp"
+
+                    android:background="@drawable/ic_lens_green_8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:text="Total Equity"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_weight="0.55"
+            android:orientation="vertical">
+
+
+            <com.DonutChartCI.DonutChartCI
+                android:id="@+id/donutChartCI"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-100dp"
+                android:layout_marginLeft="40dp"
+                android:text="Total Equity 25%"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 

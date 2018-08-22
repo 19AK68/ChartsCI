@@ -1,16 +1,6 @@
 package com.DonutChartCI;
 
-//import android.content.Context;
-//import android.content.res.TypedArray;
-//import android.graphics.BlurMaskFilter;
-//import android.graphics.Canvas;
-//import android.graphics.Paint;
-//import android.graphics.Path;
-//import android.graphics.RadialGradient;
-//import android.graphics.RectF;
-//import android.graphics.Shader;
-//import android.util.AttributeSet;
-//import android.view.View;
+
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -29,7 +19,7 @@ import com.example.ak.user.chartsci.R;
 
 public class DonutChartCI extends View {
 
-    private float radius;
+    private float radius ;
 
     Paint paint;
     Paint shadowPaint;
@@ -52,7 +42,7 @@ public class DonutChartCI extends View {
         );
 
         try {
-            radius = a.getDimension(R.styleable.DonutChartCI_radius, 20.0f);
+            radius = a.getDimension(R.styleable.DonutChartCI_radius, 180.0f);
         } finally {
             a.recycle();
         }
@@ -95,6 +85,22 @@ public class DonutChartCI extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+         float sumTotalMortgage = 100000.0f;
+         float sumMarketVaule = 125000.0f;
+         float sumTotalEquity  = sumMarketVaule- sumTotalMortgage ;
+
+
+         float sumTotal = sumMarketVaule + sumTotalMortgage ;
+
+         float prTotalMortgage =  (sumTotalMortgage/sumTotal)*360;
+         float prMarketVaule =   (sumMarketVaule/sumTotal)*360;
+         float prTotalEquity = (sumTotalEquity/sumTotal)*360;
+
+         float prMV = 0.0f;
+
+
+
+
 
         // draw shadow
         paint.setShader(null);
@@ -103,21 +109,35 @@ public class DonutChartCI extends View {
         drawDonut(canvas,paint, 0,359.9f);
 
 
+
+
         // green
-        setGradient(0xff84BC3D,0xff5B8829);
-        drawDonut(canvas,paint, 0,60);
+        setGradient(0xff84BC3D,0xff98CA47);
+        drawDonut(canvas,paint, 0,prTotalEquity);
 
         //red
-        setGradient(0xffe04a2f,0xffB7161B);
-        drawDonut(canvas,paint, 60,60);
+        if((prMarketVaule+prTotalEquity)>180.0f){
+             prMV = (prMarketVaule+prTotalEquity) - 180.0f;
+        }else {
 
-        // blue
+             prMV = prMarketVaule;
+        }
+
+        setGradient(0xffe04a2f,0xffFF8C00);
+        drawDonut(canvas,paint, prTotalEquity,prMV);
+
+
+
         setGradient(0xff4AB6C1,0xff2182AD);
-        drawDonut(canvas,paint, 120,60);
+        drawDonut(canvas,paint, prMV,prTotalMortgage);
 
-        // yellow
-        setGradient(0xffFFFF00,0xfffed325);
-        drawDonut(canvas,paint, 180,180);
+//        // blue
+//        setGradient(0xff4AB6C1,0xff2182AD);
+//        drawDonut(canvas,paint, 120,60);
+//
+//        // yellow
+//        setGradient(0xffFFFF00,0xfffed325);
+//        drawDonut(canvas,paint, 180,180);
 
 
 
