@@ -1,7 +1,5 @@
 package com.DonutChartCI;
 
-
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.BlurMaskFilter;
@@ -52,11 +50,12 @@ public class DonutChartCI extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setStrokeCap(Paint.Cap.ROUND);
+        paint.setColor(0xffffffff);
         paint.setAntiAlias(true);
         paint.setStrokeWidth(radius / 14.0f);
 
         shadowPaint = new Paint();
-        shadowPaint.setColor(0xf0000000);
+        shadowPaint.setColor(0xffffffff);
         shadowPaint.setStyle(Paint.Style.STROKE);
         shadowPaint.setAntiAlias(true);
         shadowPaint.setStrokeWidth(6.0f);
@@ -68,10 +67,10 @@ public class DonutChartCI extends View {
 
         outterCircle = new RectF();
         innerCircle = new RectF();
-        shadowRectF = new RectF();
+        //  shadowRectF = new RectF();
 
         float adjust = (.019f*radius);
-        shadowRectF.set(adjust, adjust, radius*2-adjust, radius*2-adjust);
+//        shadowRectF.set(adjust, adjust, radius*2-adjust, radius*2-adjust);
 
         adjust = .038f * radius;
         outterCircle.set(adjust, adjust, radius*2-adjust, radius*2-adjust);
@@ -85,15 +84,15 @@ public class DonutChartCI extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-         float sumTotalMortgage = 100000.0f;
-         float sumMarketVaule = 125000.0f;
-         float sumTotalEquity  = sumMarketVaule- sumTotalMortgage ;
+        float sumTotalMortgage = 100000.0f;
+        float sumMarketVaule = 125000.0f;
+        float sumTotalEquity  = sumMarketVaule- sumTotalMortgage ;
 
 
 
-         float prTotalEquity = ((sumMarketVaule/ sumTotalMortgage) -1 )*180.0f;
+        float prTotalEquity = ((sumMarketVaule/ sumTotalMortgage) -1 )*180.0f;
         float prTotalMortgage =  (1- prTotalEquity )*180.0f;
-         float prMarketVaule =   (sumMarketVaule/sumMarketVaule)*180.f;
+        float prMarketVaule =   (sumMarketVaule/sumMarketVaule)*180.f;
 
 
 
@@ -104,25 +103,30 @@ public class DonutChartCI extends View {
         // draw shadow
         paint.setShader(null);
         float adjust = (.0095f*radius);
-        paint.setShadowLayer(8, adjust, -adjust, 0xaa000000);
+        paint.setShadowLayer(8, adjust, -adjust, 0xffffffff);
         drawDonut(canvas,paint, 0,359.9f);
 
 
 
 
         // green TotalEquity
-        setGradient(0xff84BC3D,0xff98CA47);
-        drawDonut(canvas,paint, 0,prTotalEquity);
+        setGradient(0xffffffff,0xffFF8C00);; //setGradient(0xff84BC3D,0xff98CA47);
+        drawDonut(canvas,paint, 45,-267.25f);// drawDonut(canvas,paint, 0,-prTotalEquity);
 
         //red
 
-        setGradient(0xffe04a2f,0xffFF8C00);
-        drawDonut(canvas,paint, prTotalEquity,(180-prTotalEquity));
+        //      setGradient(0xffffffff,0xffFF8C00); //setGradient(0xffe04a2f,0xffFF8C00);
+        //      drawDonut(canvas,paint, 0, 180);
 //
 //
 //
-       setGradient(0xff4AB6C1,0xff2182AD);
-       drawDonut(canvas,paint, 0,-180);
+        //     setGradient(0xffffffff,0xffFF8C00); //setGradient(0xff4AB6C1,0xff2182AD);
+        //    drawDonut(canvas,paint, -prTotalEquity,(prTotalEquity-180));
+
+
+        setGradient(0xffffffff,0xffffffff); //setGradient(0xff4AB6C1,0xff2182AD);
+        drawDonut(canvas,paint, 45,92.75f);
+
 
 //        // blue
 //        setGradient(0xff4AB6C1,0xff2182AD);
@@ -191,3 +195,5 @@ public class DonutChartCI extends View {
 
 
 }
+
+
