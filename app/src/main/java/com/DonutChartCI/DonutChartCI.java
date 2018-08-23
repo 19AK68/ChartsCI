@@ -90,13 +90,12 @@ public class DonutChartCI extends View {
          float sumTotalEquity  = sumMarketVaule- sumTotalMortgage ;
 
 
-         float sumTotal = sumMarketVaule + sumTotalMortgage ;
 
-         float prTotalMortgage =  (sumTotalMortgage/sumTotal)*360;
-         float prMarketVaule =   (sumMarketVaule/sumTotal)*360;
-         float prTotalEquity = (sumTotalEquity/sumTotal)*360;
+         float prTotalEquity = ((sumMarketVaule/ sumTotalMortgage) -1 )*180.0f;
+        float prTotalMortgage =  (1- prTotalEquity )*180.0f;
+         float prMarketVaule =   (sumMarketVaule/sumMarketVaule)*180.f;
 
-         float prMV = 0.0f;
+
 
 
 
@@ -111,25 +110,19 @@ public class DonutChartCI extends View {
 
 
 
-        // green
+        // green TotalEquity
         setGradient(0xff84BC3D,0xff98CA47);
         drawDonut(canvas,paint, 0,prTotalEquity);
 
         //red
-        if((prMarketVaule+prTotalEquity)>180.0f){
-             prMV = (prMarketVaule+prTotalEquity) - 180.0f;
-        }else {
-
-             prMV = prMarketVaule;
-        }
 
         setGradient(0xffe04a2f,0xffFF8C00);
-        drawDonut(canvas,paint, prTotalEquity,prMV);
-
-
-
-        setGradient(0xff4AB6C1,0xff2182AD);
-        drawDonut(canvas,paint, prMV,prTotalMortgage);
+        drawDonut(canvas,paint, prTotalEquity,(180-prTotalEquity));
+//
+//
+//
+       setGradient(0xff4AB6C1,0xff2182AD);
+       drawDonut(canvas,paint, 0,-180);
 
 //        // blue
 //        setGradient(0xff4AB6C1,0xff2182AD);
