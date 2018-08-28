@@ -11,13 +11,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static int CHART_FULL_CIRCLE = 1 ;
-    public static int CHART_INCOMPLECTE_CIRCLE = 2 ;
-    Context context;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +18,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         float paramOne =100000.0f;
-        float param2 =125000.0f;
+        float param2 =200000.0f;
 
-//        DonutChartCI donutChartCI = new DonutChartCI(context);
-//        donutChartCI.initParamChart(paramOne,param2);
+        int type1ChartCircle = 1;
+        int type2ChartCircle = 2;
+
+        float prDrawIIncompleteCircle = 0.30f;
+
+
+        DonutChartCI donutChart = findViewById(R.id.donutIncomplecteCircle);
+        donutChart.setPrDrawCircle(prDrawIIncompleteCircle);
+
+        donutChart.setCHART_INCOMPLECTE_CIRCLE(type1ChartCircle);
+
+        DonutChartCI donutFullCitcle = findViewById(R.id.donutFullCircle);
+        donutFullCitcle.setCHART_FULL_CIRCLE(type2ChartCircle);
+        donutFullCitcle.setSumMarketVaule(paramOne);
+        donutFullCitcle.setSumTotalMortgage(param2);
 
     }
 

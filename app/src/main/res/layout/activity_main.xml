@@ -15,6 +15,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+         android:weightSum="1">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.55"
+            android:orientation="vertical">
+
+            <com.DonutChartCI.DonutChartCI
+                android:id="@+id/donutIncomplecteCircle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-100dp"
+                android:layout_marginLeft="40dp"
+                android:text="Total Equity 100%"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/donutChartTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
         android:weightSum="1">
 
         <LinearLayout
@@ -100,8 +134,7 @@
 
 
             <com.DonutChartCI.DonutChartCI
-                android:id="@+id/donutChartCI"
-
+                android:id="@+id/donutFullCircle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -116,25 +149,6 @@
         </LinearLayout>
     </RelativeLayout>
 
+
 </LinearLayout>
 
-
-<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--tools:context=".MainActivity">-->
-
-    <!--<LinearLayout-->
-        <!--android:id="@+id/layoutChartARV"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical">-->
-
-
-    <!--</LinearLayout>-->
-
-
-
-<!--</android.support.constraint.ConstraintLayout>-->

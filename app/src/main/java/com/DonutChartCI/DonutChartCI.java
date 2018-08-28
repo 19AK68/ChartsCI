@@ -33,6 +33,18 @@ public class DonutChartCI extends View {
     RectF innerCircle;
     RectF shadowRectF;
 
+    int CHART_FULL_CIRCLE ;
+
+    int CHART_INCOMPLECTE_CIRCLE  ;
+
+
+
+    float prDrawCircle;
+
+    float sumTotalMortgage;
+    float sumMarketVaule;
+
+
 
 
     public DonutChartCI(Context context, AttributeSet attrs) {
@@ -96,14 +108,7 @@ public class DonutChartCI extends View {
         super.onDraw(canvas);
 
 
-        float sumTotalMortgage = 100000.0f;
-        float sumMarketVaule = 125000.0f;
-        float sumTotalEquity = sumMarketVaule - sumTotalMortgage;
 
-
-        float prTotalEquity = ((sumMarketVaule / sumTotalMortgage) - 1) * 180.0f;
-        float prTotalMortgage = (1 - prTotalEquity) * 180.0f;
-        float prMarketVaule = (sumMarketVaule / sumMarketVaule) * 180.f;
 
 
         // draw shadow
@@ -113,28 +118,54 @@ public class DonutChartCI extends View {
         drawDonut(canvas, paint, 0, 359.9f);
 
 
+        if(CHART_INCOMPLECTE_CIRCLE==1 ){
+            float fDrawCircle = (float) (-267.25*prDrawCircle); //267.25
+            float fDrawCicle2 = (float) (-267.25-fDrawCircle);
+            // green TotalEquity
+            setGradient(0xfff4f9ec, 0xfff4f9ec); //#f4f9ec 0xff98CA47
+
+            drawDonut(canvas, paint,(45.0f+92.75f+fDrawCircle*-1), -fDrawCicle2);// drawDonut(canvas,paint, 0,-prTotalEquity);
+
+
+            setGradient(0xffffffff, 0xff98CA47); //#f4f9ec 0xff98CA47
+
+            drawDonut(canvas, paint, (45.0f+92.75f),-fDrawCircle);// drawDonut(canvas,paint, 0,-prTotalEquity);
 
 
 
-        // green TotalEquity
-        setGradient(0xffffffff, 0xffFF8C00);
-        ; //setGradient(0xff84BC3D,0xff98CA47);
-        drawDonut(canvas, paint, 45, -267.25f);// drawDonut(canvas,paint, 0,-prTotalEquity);
 
-        //red
 
-        //      setGradient(0xffffffff,0xffFF8C00); //setGradient(0xffe04a2f,0xffFF8C00);
-        //      drawDonut(canvas,paint, 0, 180);
+            setGradient(0xffffffff, 0xffffffff); //setGradient(0xff4AB6C1,0xff2182AD);
+            drawDonut(canvas, paint, 45.0f, 92.75f);
+
+        }
+
+        if(CHART_FULL_CIRCLE==2) {
+            float sumTotalEquity  = sumMarketVaule- sumTotalMortgage ;
+
+            float prTotalEquity = ((sumMarketVaule/ sumTotalMortgage) -1 )*180.0f;
+            float prTotalMortgage =  (1- prTotalEquity )*180.0f;
+            float prMarketVaule =   (sumMarketVaule/sumMarketVaule)*180.0f;
+
+
+
+
+
+
+            // green TotalEquity
+            setGradient(0xff84BC3D,0xff98CA47);
+            drawDonut(canvas,paint, 180,-prTotalEquity);
+
+            //red
+
+            setGradient(0xffe04a2f,0xffFF8C00);
+            drawDonut(canvas,paint, 0,180.0f);
+           // drawDonut(canvas,paint, prTotalEquity,(180-prTotalEquity));
 //
 //
 //
-        //     setGradient(0xffffffff,0xffFF8C00); //setGradient(0xff4AB6C1,0xff2182AD);
-        //    drawDonut(canvas,paint, -prTotalEquity,(prTotalEquity-180));
-
-
-        setGradient(0xffffffff, 0xffffffff); //setGradient(0xff4AB6C1,0xff2182AD);
-        drawDonut(canvas, paint, 45, 92.75f);
-
+            setGradient(0xff000000,0xff000000);
+            drawDonut(canvas,paint, ((180+prTotalEquity))*-1,prTotalMortgage);
 
 //        // blue
 //        setGradient(0xff4AB6C1,0xff2182AD);
@@ -143,7 +174,7 @@ public class DonutChartCI extends View {
 //        // yellow
 //        setGradient(0xffFFFF00,0xfffed325);
 //        drawDonut(canvas,paint, 180,180);
-
+        }
 
     }
 
@@ -202,18 +233,27 @@ public class DonutChartCI extends View {
         setMeasuredDimension(width, height);
     }
 
-    public void  initParamChart(float price1, float price2) {
-
-        float f1,f2,f3;
-
-        f1 = price1;
-        f2 = price2;
-        f3 = f2-f1;
 
 
-
+    public void setSumTotalMortgage(float sumTotalMortgage) {
+        this.sumTotalMortgage = sumTotalMortgage;
     }
 
+    public void setSumMarketVaule(float sumMarketVaule) {
+        this.sumMarketVaule = sumMarketVaule;
+    }
+
+    public void setCHART_FULL_CIRCLE(int CHART_FULL_CIRCLE) {
+        this.CHART_FULL_CIRCLE = CHART_FULL_CIRCLE;
+    }
+
+    public void setCHART_INCOMPLECTE_CIRCLE(int CHART_INCOMPLECTE_CIRCLE) {
+        this.CHART_INCOMPLECTE_CIRCLE = CHART_INCOMPLECTE_CIRCLE;
+    }
+
+    public void setPrDrawCircle(float prDrawCircle) {
+        this.prDrawCircle = prDrawCircle;
+    }
 
 }
 
