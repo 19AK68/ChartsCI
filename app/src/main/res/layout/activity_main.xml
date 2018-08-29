@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".MainActivity"
+    android:background="#fff">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
-    android:orientation="vertical"  >
+        android:orientation="vertical"
+    android:background="#fff">
 
     <RelativeLayout
         android:id="@+id/donutChartOne"
@@ -20,6 +25,7 @@
 
 
         <LinearLayout
+            android:id="@+id/lChart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -28,19 +34,73 @@
 
             <com.DonutChartCI.DonutChartCI
                 android:id="@+id/donutIncomplecteCircle"
+                android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-100dp"
-                android:layout_marginLeft="40dp"
-                android:text="Total Equity 100%"
-                android:textSize="14dp"/>
+                android:layout_marginTop="-130dp"
+                android:layout_marginLeft="36dp"
+                android:layout_below="@+id/donutIncomplecteCircle"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true">
+            <TextView
+                android:id="@+id/tvTotalEquietProc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:textColor="#000"
+                android:textSize="32dp"/>
+            <TextView
+                android:id="@+id/tvConfidence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTotalEquietProc"
+                android:text="Confidence"
+                android:layout_marginLeft="8dp"
+                android:textColor="#000"
+                android:paddingTop="4dp"
+                android:textSize="18dp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true">
+             <TextView
+                 android:id="@+id/tvChart1Title"
+                 android:text="EstimatedARV:"
+                 android:textColor="#000"
+                 android:textSize="16dp"
+                 android:layout_marginHorizontal="36dp"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginBottom="16dp"
+                 />
+            <ImageView
+
+                android:id="@+id/ivRectangleGreen"
+                android:layout_width="120dp"
+                android:layout_height="36dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_below="@+id/donutIncomplecteCircle"
+                android:background="@drawable/rectangle_green"
+
+            />
+            </LinearLayout>
 
         </LinearLayout>
+
     </RelativeLayout>
+
+    <View
+        android:id="@+id/line1"
+         android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
 
 
     <RelativeLayout
@@ -48,7 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:weightSum="1">
 
         <LinearLayout
@@ -69,10 +129,10 @@
                     android:layout_width="8dp"
                     android:layout_height="8dp"
                     android:layout_marginVertical="20dp"
-
                     android:background="@drawable/ic_lens_black_8dp" />
 
                 <TextView
+                    android:id="@+id/txtTM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="16dp"
@@ -95,6 +155,7 @@
                     android:background="@drawable/ic_lens_red_8dp" />
 
                 <TextView
+                    android:id="@+id/txtMV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="16dp"
@@ -117,6 +178,7 @@
                     android:background="@drawable/ic_lens_green_8dp" />
 
                 <TextView
+                    android:id="@+id/txtTE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="16dp"
@@ -139,16 +201,27 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/tvTotalEquity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-100dp"
                 android:layout_marginLeft="40dp"
-                android:text="Total Equity 25%"
+                android:text="Total Equity"
                 android:textSize="14dp"/>
 
         </LinearLayout>
     </RelativeLayout>
 
 
+    <View
+        android:id="@+id/line2"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+
+
 </LinearLayout>
 
+</ScrollView>
