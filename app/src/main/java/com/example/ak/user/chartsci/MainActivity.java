@@ -9,6 +9,9 @@ import com.DonutChartCI.DonutChartCI;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Andrey Kushnaryov on 23/08/2018.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        float paramOne =175000.0f;
-        float param2 =250000.0f;
+        float paramOne =115000.0f;
+        float param2 =145000.0f;
 
         int type1ChartCircle = 1;
         int type2ChartCircle = 2;
 
-        float prDrawIIncompleteCircle =0.97f;
+        float prDrawIIncompleteCircle =0.98f;
 
 
 
@@ -47,22 +50,29 @@ public class MainActivity extends AppCompatActivity {
         donutFullCitcle.setSumMarketVaule(param2);
         donutFullCitcle.setSumTotalMortgage(paramOne);
 
-        TextView tvTotalEquity = (TextView) findViewById(R.id.tvTotalEquity);
+        TextView procTotalEquity = (TextView) findViewById(R.id.procTotalEquity);
         int intProcTE = (int)Math.round((param2/paramOne-1)*100);
         String prTotalEquity = String.valueOf( intProcTE);
-        String procTotalEquiet = "Total Equity:"+ " "+ prTotalEquity +  " %";
-        tvTotalEquity.setText(procTotalEquiet);
+        String procTotalEquiet = prTotalEquity +  "%";
+        procTotalEquity.setText(procTotalEquiet);
 
-        TextView mTotalMortgage = (TextView)findViewById(R.id.txtTM);
+
+        TextView mTotalMortgageSum = (TextView)findViewById(R.id.txtTMSumm);
         int iparamOne = (int)Math.round(paramOne);
-        String tvTotalMortgage = "Total Mortgage:" + "\n" + " " + "$"+ String.valueOf(iparamOne);
-        mTotalMortgage.setText(tvTotalMortgage);
+        String tvTotalMortgageSum =  " " + "$"+ String.valueOf(iparamOne);
+        mTotalMortgageSum.setText(tvTotalMortgageSum);
 
-        TextView mMarketVaule = (TextView)findViewById(R.id.txtMV);
+
+        TextView mMarketVauleSumm = (TextView)findViewById(R.id.txtMVSumm);
         int iparam2 = (int)Math.round(param2);
-        String tvMarketVaule = "Market Vaule:" + "\n" + " " + "$"+ String.valueOf(iparam2);
-        mMarketVaule.setText(tvMarketVaule);
+        String tvMarketVauleSumm =  " " + "$"+ String.valueOf(iparam2);
+        mMarketVauleSumm.setText(tvMarketVauleSumm);
 
+
+        TextView mTotalEquitySumm = (TextView)findViewById(R.id.txtTESumm);
+        int iparamTotalEquitySumm = (int)Math.round(param2-paramOne);
+        String tvTotalEquitySumm =  " " + "$"+ String.valueOf(iparamTotalEquitySumm);
+        mTotalEquitySumm.setText(tvTotalEquitySumm);
 
 
 

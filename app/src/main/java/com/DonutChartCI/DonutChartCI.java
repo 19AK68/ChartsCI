@@ -17,6 +17,10 @@ import com.example.ak.user.chartsci.R;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Andrey Kushnaryov on 23/08/2018.
+ */
+
 public class DonutChartCI extends View {
 
 

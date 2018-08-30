@@ -6,13 +6,13 @@
     tools:context=".MainActivity"
     android:background="#fff">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
+    android:orientation="vertical"
     android:background="#fff">
 
     <RelativeLayout
@@ -20,9 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-         android:weightSum="1">
-
-
+        android:weightSum="1">
 
         <LinearLayout
             android:id="@+id/lChart1"
@@ -45,23 +43,24 @@
                 android:layout_below="@+id/donutIncomplecteCircle"
                 android:orientation="vertical"
                 android:layout_centerHorizontal="true">
-            <TextView
-                android:id="@+id/tvTotalEquietProc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:textColor="#000"
-                android:textSize="32dp"/>
-            <TextView
-                android:id="@+id/tvConfidence"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvTotalEquietProc"
-                android:text="Confidence"
-                android:layout_marginLeft="8dp"
-                android:textColor="#000"
-                android:paddingTop="4dp"
-                android:textSize="18dp"/>
+                <TextView
+                    android:id="@+id/tvTotalEquietProc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:text="00 %"
+                    android:textColor="#000"
+                    android:textSize="32dp"/>
+                <TextView
+                    android:id="@+id/tvConfidence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvTotalEquietProc"
+                    android:text="Confidence"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="#000"
+                    android:paddingTop="4dp"
+                    android:textSize="18dp"/>
             </RelativeLayout>
 
             <LinearLayout
@@ -109,13 +108,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="48dp"
-        android:weightSum="1">
+        android:layout_marginBottom="36dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.45"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -128,16 +127,27 @@
                     android:id="@+id/ivChartMarkerBlack"
                     android:layout_width="8dp"
                     android:layout_height="8dp"
-                    android:layout_marginVertical="20dp"
+                    android:layout_marginVertical="14dp"
                     android:background="@drawable/ic_lens_black_8dp" />
-
-                <TextView
-                    android:id="@+id/txtTM"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="16dp"
-                    android:text="Total Mortgage"
-                    android:textSize="12dp" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtTM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Total Mortgage"
+                         />
+                    <TextView
+                        android:id="@+id/txtTMSumm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="  $000000"  />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -150,17 +160,29 @@
                     android:id="@+id/ivChartMarkerRed"
                     android:layout_width="8dp"
                     android:layout_height="8dp"
-                    android:layout_marginVertical="20dp"
-
+                    android:layout_marginVertical="14dp"
                     android:background="@drawable/ic_lens_red_8dp" />
 
-                <TextView
-                    android:id="@+id/txtMV"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="16dp"
-                    android:text="Market Vaule"
-                    android:textSize="12dp" />
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtMV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Market Vaule"
+                         />
+                    <TextView
+                        android:id="@+id/txtMVSumm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="  $000000"
+                         />
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -173,17 +195,28 @@
                     android:id="@+id/ivChartMarkerGreen"
                     android:layout_width="8dp"
                     android:layout_height="8dp"
-                    android:layout_marginVertical="20dp"
-
+                    android:layout_marginVertical="14dp"
                     android:background="@drawable/ic_lens_green_8dp" />
-
-                <TextView
-                    android:id="@+id/txtTE"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="16dp"
-                    android:text="Total Equity"
-                    android:textSize="12dp" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtTE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="Total Equity"
+                         />
+                    <TextView
+                        android:id="@+id/txtTESumm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="  $000000"
+                         />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -200,15 +233,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tvTotalEquity"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-100dp"
+                android:layout_marginTop="-130dp"
                 android:layout_marginLeft="40dp"
-                android:text="Total Equity"
-                android:textSize="14dp"/>
+                android:textStyle="bold"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true">
 
+                <TextView
+                    android:id="@+id/procTotalEquity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:text="00 %"
+                    android:textColor="#000"
+                    android:textSize="32dp"
+                    />
+                    <TextView
+                        android:id="@+id/tvTotalEquity"
+                        android:layout_below="@+id/procTotalEquity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="#000"
+                        android:paddingTop="4dp"
+                        android:textSize="18dp"
+                        android:text="Total Equity" />
+            </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>
 
@@ -216,6 +269,7 @@
     <View
         android:id="@+id/line2"
         android:layout_marginTop="20dp"
+
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
